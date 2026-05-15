@@ -23,7 +23,7 @@ Aplicación web construida con **Angular** que implementa autenticación contra 
 |---|---|
 | Node.js | 18.x o superior |
 | npm | 9.x o superior |
-| Angular CLI | 19.x o superior |
+| Angular CLI | 21.x o superior |
 | Backend FastAPI | corriendo en `http://localhost:8000` |
 
 ---

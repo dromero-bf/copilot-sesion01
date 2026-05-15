@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -11,9 +11,10 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './welcome.html',
   styleUrl: './welcome.scss',
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit, OnDestroy {
   username = '';
   currentTime = new Date();
+  private clockInterval?: ReturnType<typeof setInterval>;
 
   constructor(
     private authService: AuthService,
@@ -23,9 +24,15 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUserInfo();
-    setInterval(() => {
+    this.clockInterval = setInterval(() => {
       this.currentTime = new Date();
     }, 1000);
+  }
+
+  ngOnDestroy(): void {
+    if (this.clockInterval) {
+      clearInterval(this.clockInterval);
+    }
   }
 
   loadUserInfo(): void {
