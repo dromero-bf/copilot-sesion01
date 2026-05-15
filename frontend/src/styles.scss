@@ -1,0 +1,34 @@
+/* Global styles — Stripe-inspired design system */
+
+/* Apply ss01 stylistic set and tnum where needed globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  color: #0d253d;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Enable ss01 stylistic set globally */
+  font-feature-settings: "ss01";
+}
+
+a {
+  color: #533afd;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
